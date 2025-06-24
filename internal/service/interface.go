@@ -7,7 +7,7 @@ import (
 
 type TaskRepositoryInterface interface {
 	CreateTask(taskID int, initialStatus string, createdAt time.Time, expiry time.Time) error
-	GetTaskByID(taskID int) (*dto.Task, error)
+	GetTaskByID(taskID int) (dto.Task, error)
 	UpdateTaskStatus(taskID int, newStatus string) error
 	DeleteTask(taskID int) error
 }

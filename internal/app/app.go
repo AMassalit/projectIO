@@ -14,7 +14,6 @@ import (
 )
 
 func Run(cfg *config.Config) {
-	//ctx := context.Background()
 
 	newLogger := logger.NewLogger(cfg.Log.Level)
 	taskRepo := service.NewRepository()

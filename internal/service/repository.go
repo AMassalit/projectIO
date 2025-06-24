@@ -28,12 +28,12 @@ func (t *TaskRepo) CreateTask(taskID int, initialStatus string, createdAt time.T
 	return nil
 }
 
-func (t *TaskRepo) GetTaskByID(taskID int) (*dto.Task, error) {
+func (t *TaskRepo) GetTaskByID(taskID int) (dto.Task, error) {
 	task, ok := tasks[taskID]
 	if !ok {
-		return nil, errors.New("task not found")
+		return dto.Task{}, errors.New("task not found")
 	}
-	return task, nil
+	return *task, nil
 }
 
 func (t *TaskRepo) UpdateTaskStatus(taskID int, newStatus string) error {

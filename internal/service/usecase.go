@@ -33,8 +33,6 @@ func (t *TaskService) GetTaskInfoByID(taskID int) (dto.TaskResponse, error) {
 
 	if time.Now().After(task.Expiry) {
 		if task.Status != "completed" {
-			task.Status = "completed"
-
 			t.repo.UpdateTaskStatus(taskID, "completed")
 		}
 	}
